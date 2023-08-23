@@ -2,11 +2,28 @@
 
 #include <vector>
 
+#include <queue>
+
 #include <cmath>
 
-#include <AirSim.h> // Include the AirSim API headers
+#include <unordered_map>
 
- 
+#include <unordered_set>
+
+
+#include "common/common_utils/StrictMode.hpp"
+STRICT_MODE_OFF
+#ifndef RPCLIB_MSGPACK
+#define RPCLIB_MSGPACK clmdep_msgpack
+#endif // !RPCLIB_MSGPACK
+#include "rpc/rpc_error.h"
+STRICT_MODE_ON
+
+#include "vehicles/multirotor/api/MultirotorRpcLibClient.hpp"
+#include "common/common_utils/FileSystem.hpp"
+
+#include <chrono>
+#include <thread>
 
 using namespace std;
 
@@ -193,12 +210,32 @@ private:
 int main() {
 
     // Initialize AirSim connection
+    
+    msr::airlib::MultirotorRpcLibClient client;
 
-    AirSimClient client;
+    typedef msr::airlib::ImageCaptureBase::ImageRequest ImageRequest;
 
-    client.confirmConnection();
+    typedef msr::airlib::ImageCaptureBase::ImageResponse ImageResponse;
 
- 
+    typedef msr::airlib::ImageCaptureBase::ImageType ImageType;
+
+    typedef common_utils::FileSystem FileSystem;
+
+    std::cout << "Press Enter to enable API control\n";
+    std::cin.get();
+    client.enableApiControl(true);
+
+    std::cout << "Press Enter to arm the drone\n";
+    std::cin.get();
+    client.armDisarm(true);
+
+    std::cout << "Press Enter to takeoff\n";
+    std::cin.get();
+    client.takeoffAsync(5)->waitOnLastTask();
+
+    std::cout << "Press Enter to follow found path\n";
+    std::cin.get();
+
 
     // Create the RRT planner
 
