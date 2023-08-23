@@ -12,6 +12,7 @@ In order to run these scripts, the following steps must be taken.
 2) You need to make an empty project in visual studio or implement the codes in your project. 
 3) Add the references of AirLib & MavLinkCom libraries by containing their .vcxproj files to your project.
 4) Adjust the dependencies, so that it is similar to those of the AirSim library, as follows:
+   
    $(ProjectDir)..\AirLib\deps\rpclib\include;
    include;$(ProjectDir)..\AirLib\deps\eigen3;
    $(ProjectDir)..\AirLib\include
@@ -19,7 +20,8 @@ In order to run these scripts, the following steps must be taken.
    $(ProjectDir)\..\AirLib\deps\MavLinkCom\lib\$(Platform)\$(Configuration);
    $(ProjectDir)\..\AirLib\deps\rpclib\lib\$(Platform)\$(Configuration);
    $(ProjectDir)\..\AirLib\lib\$(Platform)\$(Configuration)
-5) Adjust the values to fit your scenario.
-6) Build the projetc.
-7) Press play in the Unreal Environment and execute the code.
+   
+6) Adjust the values to fit your scenario.
+7) Build the projetc.
+8) Press play in the Unreal Environment and execute the code.
 
