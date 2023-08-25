@@ -10,7 +10,7 @@
 
 #include <unordered_set>
 
-//#include <AirSim.h> // Include the AirSim API headers
+
 #include "common/common_utils/StrictMode.hpp"
 STRICT_MODE_OFF
 #ifndef RPCLIB_MSGPACK
@@ -122,11 +122,12 @@ public:
             Node* current_node = path[i];
             int next_x = current_node->x;
             int next_y = current_node->y;
-            int next_z = current_node->z * -1;
+            int next_z = current_node->z * -1; //Due to NED coordinates system, reverse the z-axis
 
             std::cout << "\n";
             std::cout << "x: " << next_x << " y: " << next_y << " z: " << next_z;
 
+            //Failed to implement this function
             //// Move the drone to the next waypoint
             //msr::airlib::Pose pose;
             //pose.position.x() = next_x * .01;
