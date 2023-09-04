@@ -1,6 +1,6 @@
 # Airsim
-The C++ codes contained in this repository were written for the purpose of my thesis. The codes contain an alogorithm 
-implementation for A* for AirSim. The code does not take into account various hurdles. There is a suggested implementation within.
+The C++ codes contained in this repository were written for the purpose of my thesis. The codes contain an algorithm 
+implementation for A* for AirSim. The code does not take into account the detection of various hurdles. There is a suggested implementation within.
 
 The other code contains a suggested implementation for a RRT algorithm for AirSim. That code contains various mechanisms 
 for hurdle avoidance. However, it's only a suggested draft and thus wan never finished. The suggested implementations have been
@@ -22,6 +22,6 @@ In order to run these scripts, the following steps must be taken.
    $(ProjectDir)\..\AirLib\lib\$(Platform)\$(Configuration)
    
 6) Adjust the values to fit your scenario.
-7) Build the projetc.
+7) Build the project.
 8) Press play in the Unreal Environment and execute the code.
 
